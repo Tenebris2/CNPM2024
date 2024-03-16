@@ -6,6 +6,7 @@ const TodoContext = createContext()
 function TodoContextProvider({children}){
     const defaultProject = 'today'
     const [selectedProject, setSelectedProject] = useState(defaultProject)
+    const [selectedTodo, setSelectedTodo] = useState(undefined)
 
     const todos = useTodos()
     const projects = useProjects()
@@ -20,7 +21,9 @@ function TodoContextProvider({children}){
                     selectedProject,
                     setSelectedProject,
                     todos : filteredTodos,
-                    projects : projectsWithStats
+                    projects : projectsWithStats,
+                    selectedTodo,
+                    setSelectedTodo
                 }
             }
         >
