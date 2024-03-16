@@ -5,11 +5,22 @@ import firebase from '../firebase'
 function Todo({todo}){
     const [hover, setHover] = useState(false)
 
-    const deleteTodo = todoId => {
+    const toggleChecked = () => {
+        // Toggle the checked status of the todo item in the database
         firebase
             .firestore()
             .collection('todos')
-            .doc(todoId)
+            .doc(todo.id)
+            .update({
+                checked: !todo.checked
+            })
+    }
+
+    const deleteTodo = () => {
+        firebase
+            .firestore()
+            .collection('todos')
+            .doc(todo.id)
             .delete()
     }
 
@@ -20,7 +31,7 @@ function Todo({todo}){
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
             >
-                <div className="check-todo">
+                <div className="check-todo" onClick={toggleChecked}>
                     {
                         todo.checked ?
                         <span className="checked">
@@ -47,7 +58,7 @@ function Todo({todo}){
                 </div>
                 <div
                     className="delete-todo"
-                    onClick={ () => deleteTodo(todo.id)} // Pass only the todo ID
+                    onClick={deleteTodo}
                 >
                     {
                         (hover || todo.checked) &&
