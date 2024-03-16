@@ -5,11 +5,11 @@ import firebase from '../firebase'
 function Todo({todo}){
     const [hover, setHover] = useState(false)
 
-    const deleteTodo = todo => {
+    const deleteTodo = todoId => {
         firebase
             .firestore()
             .collection('todos')
-            .doc(todo.id)
+            .doc(todoId)
             .delete()
     }
 
@@ -47,7 +47,7 @@ function Todo({todo}){
                 </div>
                 <div
                     className="delete-todo"
-                    onClick={ () => deleteTodo(todo)}
+                    onClick={ () => deleteTodo(todo.id)} // Pass only the todo ID
                 >
                     {
                         (hover || todo.checked) &&

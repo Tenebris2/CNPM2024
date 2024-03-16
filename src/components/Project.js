@@ -12,11 +12,11 @@ function Project({project, edit}){
     // STATE
     const [showModal, setShowModal] = useState(false)
 
-    const deleteProject = project => {
+    const deleteProject = projectId => {
         firebase
             .firestore()
             .collection('projects')
-            .doc(project.id)
+            .doc(projectId)
             .delete()
             .then( () => {
                 firebase
@@ -57,7 +57,7 @@ function Project({project, edit}){
                         </span>
                         <span
                             className="delete"
-                            onClick={ () => deleteProject(project)}
+                            onClick={ () => deleteProject(project.id)}
                         >
                             <XCircle size="13" />
                         </span>
