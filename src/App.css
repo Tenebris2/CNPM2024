@@ -6,28 +6,33 @@
   box-sizing: border-box;
   font-family: "Ubuntu", sans-serif;
 }
+
+body {
+  padding: 20px;
+}
+
 /* App */
 .App {
   display: flex;
-  width: 100vw;
-  height: 100vh;
+  width: 97vw;
+  height: 94vh;
   overflow: hidden;
 }
 
 /* Sidebar */
 .Sidebar {
-  width: 300px;
+  width: 25vw;
   min-width: 210px;
   height: 100%;
+  border-radius: 20px;
+  background-color: rgb(220, 220, 220);
+  border-style: none;
 }
 
 /* Main */
 .Main {
   width: 100%;
   height: 100%;
-  background-image: url("./images/bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
 }
 
@@ -37,7 +42,6 @@
   align-items: center;
   justify-content: space-around;
   padding: 1rem;
-  border: 1px solid #ebebeb;
 }
 
 .User .logo img {
@@ -67,6 +71,7 @@
   background: rgba(0, 0, 0, 0.8);
   z-index: 99;
 }
+
 .Modal .container {
   position: absolute;
   top: 25%;
@@ -75,13 +80,16 @@
 }
 /* AddNewTodo */
 .AddNewTodo {
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1px solid gray;
+  margin: 0 20px;
 }
+
 .AddNewTodo .btn {
   padding: 1rem;
   width: 100%;
   height: 70px;
 }
+
 .AddNewTodo .btn button {
   width: 100%;
   height: 100%;
@@ -178,7 +186,8 @@
 /* Calendar */
 .Calendar {
   padding: 1rem;
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1px solid gray;
+  margin: 0 20px;
 }
 .Calendar .header {
   display: flex;
@@ -220,8 +229,10 @@
 /* Projects */
 .Projects {
   padding: 1rem;
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1px solid gray;
+  margin: 0 20px;
 }
+
 .Projects .header {
   display: flex;
   align-items: center;
