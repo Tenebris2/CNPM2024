@@ -21,7 +21,7 @@ body {
 
 /* Sidebar */
 .Sidebar {
-  width: 25vw;
+  width: 30vw;
   min-width: 210px;
   height: 100%;
   border-radius: 20px;
@@ -382,29 +382,28 @@ body {
 
 /* Todos */
 .Todos {
-  width: 450px;
-  height: 80%;
-  background-color: gray;
-
+  width: 100%;
+  height: 100%;
+  background-color: white;
   position: relative;
   border-radius: 8px;
   opacity: 0.9;
-
-  padding: 0 0.5rem 0.5rem 0.5rem;
+  padding: 0 0 0 32px;
   overflow-y: auto;
 }
 
 .Todos .selected-project {
-  margin: 1rem 0;
+  /* margin: 1rem 0; */
   text-transform: capitalize;
-  font-size: 1.2rem;
+  font-size: 50px;
   font-weight: bold;
   padding-bottom: 2px;
-  border-bottom: 1px solid red;
 }
+
 .Todos .todos {
   overflow-y: auto;
 }
+
 /* Todo */
 .Todo {
   padding: 0.5rem 1rem;
