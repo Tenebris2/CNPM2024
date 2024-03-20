@@ -108,45 +108,65 @@ body {
 
 /* AddNewTodo form */
 .TodoForm {
-  padding: 1rem 1rem calc(1rem + 40px) 1rem;
-  width: 100%;
+  padding: 20px;
+  height: 600px;
+  width: 600px;
   background: white;
-  border-radius: 4px;
+  border-radius: 12px;
+  font-size: 24px;
 }
 
 .TodoForm .text input {
   padding: 1rem;
   width: 100%;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
   border-radius: 8px;
   font-size: 1.2rem;
+  margin-top: 20px;
 }
 
-.TodoForm .text input:focus {
-}
+/* .TodoForm .text input:focus {
+} */
 
-.TodoForm .remind {
+/* .TodoForm .remind {
   display: flex;
   align-items: center;
   padding: 0.5rem;
-}
-.TodoForm p {
+} */
+
+/* .TodoForm p {
   margin-left: 10px;
-}
+} */
+
 .TodoForm .title {
   display: flex;
   align-items: center;
   margin-bottom: 5px;
 }
+
 .TodoForm .pick-day {
-  padding: 1.5rem 1.5rem 0 1.5rem;
+  margin-top: 12px;
+  padding: 1.5rem 0 0 0;
+  font-size: 20px;
 }
+
+.TodoForm .pick-day p {
+  margin-right: 60px;
+}
+
 .TodoForm .pick-time {
-  padding: 1.5rem;
+  padding: 1.5rem 0 0 0;
+  font-size: 20px;
 }
+
+.TodoForm .pick-time p {
+  margin-right: 28px;
+}
+
 .TodoForm .pick-project {
-  padding: 0.5rem;
+  padding: 1.5rem 0 0 0;
 }
+
 .TodoForm .pick-project .projects {
   display: flex;
   flex-wrap: wrap;
