@@ -463,31 +463,40 @@ body {
 .Todo .todo-container .text .line-through {
   width: 100%;
 }
+
 .Todo .todo-container .add-to-next-day {
   margin-right: 10px;
 }
+
+/* halftodos */
+.halfTodos {
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  position: relative;
+  border-radius: 8px;
+  opacity: 0.9;
+  padding: 0 0 0 32px;
+  overflow-y: auto;
+}
+
 /* EditTodo */
 .EditTodo {
   position: absolute;
   bottom: 40px;
-  left: calc(40px + 450px + 40px);
-
-  background-color: white;
-
+  margin-left: 600px;
+  background-color: red;
   height: 80%;
   width: 450px;
-
   border-radius: 4px;
   opacity: 0.9;
 }
+
 .EditTodo .header {
   margin: 1rem 0.5rem;
-
   font-size: 1.2rem;
   font-weight: bold;
-
   padding-bottom: 2px;
-  border-bottom: 1px solid #eeeeee;
 }
 
 /* Next7Days */
