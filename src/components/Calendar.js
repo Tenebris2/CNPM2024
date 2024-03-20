@@ -15,11 +15,11 @@ function Calendar() {
         <div className="title">
           <p>Tasks</p>
         </div>
-        <div className="btns">
+        {/* <div className="btns">
           <span>
             <CaretUp size="20" />
           </span>
-        </div>
+        </div> */}
       </div>
       <div className="items">
         <div
