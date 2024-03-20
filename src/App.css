@@ -105,6 +105,7 @@ body {
   filter: brightness(1.1);
   transition: all 300ms ease;
 }
+
 /* AddNewTodo form */
 .TodoForm {
   padding: 1rem 1rem calc(1rem + 40px) 1rem;
@@ -112,17 +113,18 @@ body {
   background: white;
   border-radius: 4px;
 }
+
 .TodoForm .text input {
   padding: 1rem;
   width: 100%;
   margin-bottom: 0.5rem;
-  border: none;
+  border-radius: 8px;
   font-size: 1.2rem;
 }
+
 .TodoForm .text input:focus {
-  outline: none;
-  border-bottom: 1px solid #0080ff;
 }
+
 .TodoForm .remind {
   display: flex;
   align-items: center;
@@ -185,9 +187,8 @@ body {
 }
 /* Calendar */
 .Calendar {
-  padding: 1rem;
   border-bottom: 1px solid gray;
-  margin: 0 20px;
+  margin: 20px 20px;
 }
 .Calendar .header {
   display: flex;
@@ -200,7 +201,7 @@ body {
   flex: 1;
 }
 .Calendar .header .title p {
-  margin-left: 5px;
+  margin-left: 4px;
   font-size: 1.1rem;
   font-weight: bold;
 }
@@ -240,7 +241,6 @@ body {
 
 /* Projects */
 .Projects {
-  padding: 1rem;
   border-bottom: 1px solid gray;
   margin: 0 20px;
 }
@@ -372,10 +372,12 @@ body {
   left: 0;
   background-color: #bebebe;
 }
+
 .ProjectForm button.confirm {
   right: 0;
   background-color: #0080ff;
 }
+
 .ProjectForm button:hover {
   filter: brightness(1.1);
 }
