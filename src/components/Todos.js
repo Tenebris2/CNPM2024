@@ -12,6 +12,7 @@ function Todos(){
                 {selectedProject}
             </div>
             <div className="todos">
+                
             {
                 selectedProject === "Upcoming" ?
                 <Next7Days todos={todos} />
