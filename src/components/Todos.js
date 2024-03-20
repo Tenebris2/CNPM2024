@@ -13,7 +13,7 @@ function Todos(){
             </div>
             <div className="todos">
             {
-                selectedProject === "next 7 days" ?
+                selectedProject === "Upcoming" ?
                 <Next7Days todos={todos} />
                 :
                 todos.map( todo => 
