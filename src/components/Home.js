@@ -1,4 +1,5 @@
-import "./App.css";
+// Home.js
+import React from 'react';
 import Sidebar from "./components/Sidebar";
 import Main from "./components/Main";
 import User from "./components/User";
@@ -7,10 +8,8 @@ import Calendar from "./components/Calendar";
 import Projects from "./components/Projects";
 import Todos from "./components/Todos";
 import EditTodo from "./components/EditTodo";
-import Login from "./components/Login";
-import { Router } from "react-router-dom";
-import { Routes,Route } from "react-router-dom";
-function App() {
+
+const Home = () => {
   return (
     <div className="App">
       <Sidebar>
@@ -25,6 +24,6 @@ function App() {
       </Main>
     </div>
   );
-}
+};
 
-export default App;
+export default Home;
