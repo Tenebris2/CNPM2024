@@ -1,14 +1,18 @@
 import React from "react";
-import reactDom from "react-dom";
-import App from "./App";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { TodoContextProvider } from "./context";
-import { BrowserRouter } from "react-router-dom";
-reactDom.render(
-  <TodoContextProvider>
-    <React.StrictMode>
-    <App />
-    </React.StrictMode>
-  </TodoContextProvider>,
+import App from "./App";
+import Login from "./components/Login";
 
+ReactDOM.render(
+  <TodoContextProvider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/app" element={<App />} />
+      </Routes>
+    </Router>
+  </TodoContextProvider>,
   document.getElementById("root")
 );

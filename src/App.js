@@ -7,9 +7,6 @@ import Calendar from "./components/Calendar";
 import Projects from "./components/Projects";
 import Todos from "./components/Todos";
 import EditTodo from "./components/EditTodo";
-import Login from "./components/Login";
-import { Router } from "react-router-dom";
-import { Routes,Route } from "react-router-dom";
 function App() {
   return (
     <div className="App">
