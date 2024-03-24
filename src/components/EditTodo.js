@@ -10,6 +10,7 @@ function EditTodo() {
   const [day, setDay] = useState(new Date());
   const [time, setTime] = useState(new Date());
   const [todoProject, setTodoProject] = useState("");
+  const [showForm, setShowForm] = useState(false); // State to control form visibility
 
   // CONTEXT
   const { selectedTodo, projects } = useContext(TodoContext);
@@ -20,6 +21,7 @@ function EditTodo() {
       setDay(moment(selectedTodo.date, "MM/DD/YYYY"));
       setTime(moment(selectedTodo.time, "hh:mm A"));
       setTodoProject(selectedTodo.projectName);
+      setShowForm(true); // Show form when todo is selected
     }
   }, [selectedTodo]);
 
@@ -39,12 +41,21 @@ function EditTodo() {
     }
   }, [text, day, time, todoProject]);
 
-  function handleSubmit(e) {}
+  function handleSubmit(e) {
+    e.preventDefault();
+    // Handle form submission if needed
+  }
+
+  function handleClose() {
+    setShowForm(false); // Close the form
+  }
+
   return (
     <div>
-      {selectedTodo && (
+      {showForm && selectedTodo && (
         <div className="EditTodo">
           <div className="header">Edit Todo</div>
+          <button onClick={handleClose}>Close</button> {/* Close button */}
           <div className="container">
             <TodoForm
               handleSubmit={handleSubmit}
