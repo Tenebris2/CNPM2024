@@ -1,40 +1,37 @@
-import React from "react";
-import "./css/Login.css";
-import {Link} from "react-router-dom"
-class Login extends React.Component{
-    render() {
-        return(
-            <section id="main">
-                    <div className="nav-item">
-                        <a className="navbar-brand" href="/">Vusic</a>
-                    </div>
-                    <div className="main-row">
-                        <div className="main-row-img">
-                            <img className="head-phone-img"  alt=""/>
-                        </div>
-                        <div className="main-row-text">
-                        <form>
-                        <div className="mb-3">
-                            <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                            <input type="password" className="form-control" id="exampleInputPassword1"/>
-                        </div>
-                        
-                        </form>
-                            <Link to={"/app"} className="btn">
-                                Log in
-                            </Link>
-                            <Link to={"/home"} className="btn">
-                                Sign in
-                            </Link>
-                        </div>
-                    </div>
-            </section>
-        );
-    }
-}
+import React, {useState} from "react";
+import { auth } from "../firebase/FirebaseForLogin";
+import { signInWithEmailAndPassword, signInWithEmailLink } from "firebase/auth";
+const Login = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const signIn = (e) => {
+        e.preventDefault();
+        signInWithEmailAndPassword(auth, email, password)
+        .then( (userCredential) => {
+            console.log(userCredential);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    };
+    return (
+        <div className="sign-in-container">
+            <form onSubmit={signIn}>
+                <h1>Login in</h1>
+                <input type="email" placeholder="Enter your email" 
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)}> 
+                </input>
+
+                <input type="password" placeholder="Enter your password" 
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)}> 
+                </input>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    );
+};
 
 export default Login;

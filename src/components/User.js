@@ -9,7 +9,7 @@ function User() {
       </div>
       <div className="info">
         <p>Hanoi Ghoul</p>
-        <a href="#">Logout!</a>
+        <a href="/">Logout!</a>
       </div>
     </div>
   );
