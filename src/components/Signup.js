@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 import { auth } from "../firebase/FirebaseForLogin";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-
+import "./css/Signup.css"
 const SignUp = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -22,8 +22,9 @@ const SignUp = () => {
     };
 
     return (
-        <div className="sign-in-container">
-            <form onSubmit={signUp}>
+        <div className="Signup">
+        <div className="auth-form-container">
+            <form className="login-form" onSubmit={signUp}>
                 <h1>Create your account</h1>
                 <input
                     type="email"
@@ -41,6 +42,7 @@ const SignUp = () => {
 
                 <button type="submit">Sign up</button>
             </form>
+        </div>
         </div>
     );
 };

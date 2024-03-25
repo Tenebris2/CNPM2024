@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate instead of
 import { auth } from "../firebase/FirebaseForLogin";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-
+import "./css/Login.css"
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -18,9 +18,17 @@ const Login = () => {
                 navigate("/app");
             })
             .catch((error) => {
-                console.log(error);
+                // Handle authentication errors
+                console.error('Login Error:', error); // Log the full error object for debugging
+                if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+                    alert('Invalid email or password. Please try again.');
+                } else {
+                    alert('Invalid email or password. Please try again.'); 
+                }
             });
     };
+    
+    
     const navigateToSignUp = () => {
         navigate("/signup");
     };
@@ -46,8 +54,9 @@ const Login = () => {
     };
 
     return (
-        <div className="sign-in-container">
-            <form onSubmit={signIn}>
+        <div className="Login">
+        <div className="auth-form-container">
+            <form className="login-form" onSubmit={signIn}>
                 <h1>Login in to your account</h1>
                 <input
                     type="email"
@@ -64,19 +73,20 @@ const Login = () => {
                 ></input>
 
                 <button type="submit">Login</button>
-                <button onClick={navigateToSignUp}>Sign up</button>
+                <button className="link-btn" onClick={navigateToSignUp}>Don't have an account? Register here</button>
             </form>
 
             <div>
                 {authUser ? (
                     <>
                         <p>{`Signed in as ${authUser.email}`}</p>
-                        <button onClick={userSignOut}>Sign out</button>
+                        <button className="link-btn" onClick={userSignOut}>Sign out</button>
                     </>
                 ) : (
                     <p>Signed Out</p>
                 )}
             </div>
+        </div>
         </div>
     );
 };
