@@ -498,18 +498,25 @@ body {
 }
 
 .EditTodo .header {
-  margin: 1rem 0.5rem;
-  font-size: 1.2rem;
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: 24px;
   font-weight: bold;
-  padding-bottom: 2px;
   justify-content: center;
+}
+
+.EditTodo button {
+  background-color: rgb(244, 244, 244);
+  font-weight: 900;
+  font-size: 20px;
+  color: black;
 }
 
 /* .EditTodoForm .container {
 } */
 
 .EditTodoForm {
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   height: 600px;
   width: 100%;
   background: rgb(244, 244, 244);
@@ -520,10 +527,10 @@ body {
 .EditTodoForm .text input {
   padding: 1rem;
   width: 100%;
-  /* margin-bottom: 0.5rem; */
   border-radius: 8px;
   font-size: 1.2rem;
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  background-color: red;
 }
 
 /* .TodoForm .text input:focus {
