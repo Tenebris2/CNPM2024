@@ -483,13 +483,18 @@ body {
 /* EditTodo */
 .EditTodo {
   position: absolute;
-  bottom: 40px;
-  margin-left: 600px;
-  background-color: red;
-  height: 80%;
-  width: 450px;
-  border-radius: 4px;
+  bottom: 0;
+  right: 0;
+  background-color: rgb(244, 244, 244);
+  height: 100%;
+  width: 500px;
+  border-radius: 20px;
   opacity: 0.9;
+}
+
+.EditTodo .headerbar {
+  display: flex;
+  justify-content: space-between;
 }
 
 .EditTodo .header {
@@ -497,6 +502,109 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   padding-bottom: 2px;
+  justify-content: center;
+}
+
+/* .EditTodoForm .container {
+} */
+
+.EditTodoForm {
+  padding: 20px;
+  height: 600px;
+  width: 100%;
+  background: rgb(244, 244, 244);
+  border-radius: 12px;
+  font-size: 24px;
+}
+
+.EditTodoForm .text input {
+  padding: 1rem;
+  width: 100%;
+  /* margin-bottom: 0.5rem; */
+  border-radius: 8px;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+/* .TodoForm .text input:focus {
+} */
+
+/* .TodoForm .remind {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+} */
+
+/* .TodoForm p {
+  margin-left: 10px;
+} */
+
+.EditTodoForm .title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.EditTodoForm .pick-day {
+  margin-top: 12px;
+  padding: 1.5rem 0 0 0;
+  font-size: 20px;
+}
+
+.EditTodoForm .pick-day p {
+  margin-right: 60px;
+}
+
+.EditTodoForm .pick-time {
+  padding: 1.5rem 0 0 0;
+  font-size: 20px;
+}
+
+.EditTodoForm .pick-time p {
+  margin-right: 28px;
+}
+
+.EditTodoForm .pick-project {
+  padding: 1.5rem 0 0 0;
+}
+
+.EditTodoForm .pick-project .projects {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 1rem 0 1rem;
+}
+.EditTodoForm .pick-project .projects .project {
+  border: 1px solid #0080ff;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+.EditTodoForm .pick-project .projects .active {
+  background: #0080ff;
+  color: white;
+}
+.EditTodoForm .cancel {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  cursor: pointer;
+}
+.EditTodoForm .confirm {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.EditTodoForm .confirm button {
+  width: 100%;
+  height: 40px;
+  background: #0080ff;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 0 0 4px 4px;
+  cursor: pointer;
 }
 
 /* Next7Days */

@@ -3,6 +3,7 @@ import TodoForm from "./TodoForm";
 import { TodoContext } from "../context";
 import moment from "moment";
 import firebase from "../firebase";
+import EditTodoForm from "./EditTodoForm";
 
 function EditTodo() {
   // STATE
@@ -54,10 +55,12 @@ function EditTodo() {
     <div>
       {showForm && selectedTodo && (
         <div className="EditTodo">
-          <div className="header">Edit Todo</div>
-          <button onClick={handleClose}>Close</button> {/* Close button */}
+          <div className="headerbar">
+            <div className="header">Edit Todo</div>
+            <button onClick={handleClose}>X</button> {/* Close button */}
+          </div>
           <div className="container">
-            <TodoForm
+            <EditTodoForm
               handleSubmit={handleSubmit}
               text={text}
               setText={setText}
