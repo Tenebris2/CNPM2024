@@ -92,7 +92,7 @@ function EditTodoForm({
               <X size="40" />
             </div>
             <div className="confirm">
-              <button>+ Add to do</button>
+              <button>Add to do</button>
             </div>
           </div>
         )}

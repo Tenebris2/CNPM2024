@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../images/logo.jpg";
+import logo from "../images/ghould.png";
 
 function User() {
   return (
@@ -9,7 +9,7 @@ function User() {
       </div>
       <div className="info">
         <p>Hanoi Ghoul</p>
-        <a href="/">Logout!</a>
+        <a href="/">Logout</a>
       </div>
     </div>
   );
