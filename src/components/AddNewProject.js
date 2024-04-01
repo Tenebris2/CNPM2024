@@ -47,7 +47,7 @@ function AddNewProject() {
           value={projectName}
           setValue={setProjectName}
           setShowModal={setShowModal}
-          confirmButtonText="+ Add Project"
+          confirmButtonText="Add Project"
         />
       </Modal>
     </div>

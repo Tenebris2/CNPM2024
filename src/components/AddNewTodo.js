@@ -49,7 +49,7 @@ function AddNewTodo() {
   return (
     <div className="AddNewTodo">
       <div className="btn">
-        <button onClick={() => setShowModal(true)}>+ New Todo</button>
+        <button onClick={() => setShowModal(true)}>New Todo</button>
       </div>
       <Modal showModal={showModal} setShowModal={setShowModal}>
         <TodoForm

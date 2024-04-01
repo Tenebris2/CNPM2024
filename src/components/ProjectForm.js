@@ -23,7 +23,7 @@ function ProjectForm({
         role="button"
         onClick={() => setShowModal(false)}
       >
-        cancel
+        Cancel
       </button>
       <button className="confirm">{confirmButtonText}</button>
     </form>
