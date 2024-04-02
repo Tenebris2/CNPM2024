@@ -35,6 +35,7 @@ const Login = () => {
   const navigateToSignUp = () => {
     navigate("/signup");
   };
+
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -48,13 +49,13 @@ const Login = () => {
     };
   }, []);
 
-  const userSignOut = () => {
+ /* const userSignOut = () => {
     signOut(auth)
       .then(() => {
         console.log("sign out successful");
       })
       .catch((error) => console.log(error));
-  };
+  }; */
 
   return (
     <div className="Login">
@@ -80,19 +81,7 @@ const Login = () => {
             Don't have an account? Sign up
           </div>
         </form>
-
-        <div>
-          {authUser ? (
-            <>
-              <p>{`Signed in as ${authUser.email}`}</p>
-              <button className="link-btn" onClick={userSignOut}>
-                Sign out
-              </button>
-            </>
-          ) : (
-            <p>Signed Out</p>
-          )}
-        </div>
+         
       </div>
     </div>
   );
