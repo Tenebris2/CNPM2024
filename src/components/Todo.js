@@ -14,14 +14,10 @@ function Todo({ todo }) {
   const [hover, setHover] = useState(false);
 
   // CONTEXT
-  const { selectedTodo, setSelectedTodo } = useContext(TodoContext);
+  const { setSelectedTodo } = useContext(TodoContext);
 
   const handleDelete = (todo) => {
     deleteTodo(todo);
-
-    if (selectedTodo === todo) {
-      setSelectedTodo(undefined);
-    }
   };
 
   const deleteTodo = (todo) => {
@@ -49,8 +45,12 @@ function Todo({ todo }) {
     firebase.firestore().collection("todos").add(repeatedTodo);
   };
 
+  const handleTodoClick = () => {
+    setSelectedTodo(todo);
+  };
+
   return (
-    <div className="Todo">
+    <div className="Todo" onClick={handleTodoClick}>
       <div
         className="todo-container"
         onMouseEnter={() => setHover(true)}
@@ -67,7 +67,7 @@ function Todo({ todo }) {
             </span>
           )}
         </div>
-        <div className="text" onClick={() => setSelectedTodo(todo)}>
+        <div className="text">
           <p style={{ color: todo.checked ? "#bebebe" : "#000000" }}>
             {todo.text}
           </p>

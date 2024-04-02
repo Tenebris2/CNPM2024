@@ -15,15 +15,17 @@ function EditTodo() {
   const [showForm, setShowForm] = useState(false); // State to control form visibility
 
   // CONTEXT
-  const { selectedTodo, projects } = useContext(TodoContext);
+  const { selectedTodo, projects, setSelectedTodo } = useContext(TodoContext);
 
   useEffect(() => {
     if (selectedTodo) {
       setText(selectedTodo.text);
-      setDay(moment(selectedTodo.date, "MM/DD/YYYY"));
-      setTime(moment(selectedTodo.time, "hh:mm A"));
+      setDay(moment(selectedTodo.date, "MM/DD/YYYY").toDate());
+      setTime(moment(selectedTodo.time, "hh:mm A").toDate());
       setTodoProject(selectedTodo.projectName);
       setShowForm(true); // Show form when todo is selected
+    } else {
+      setShowForm(false); // Close form if no todo is selected
     }
   }, [selectedTodo]);
 
@@ -49,7 +51,7 @@ function EditTodo() {
   }
 
   function handleClose() {
-    setShowForm(false); // Close the form
+    setSelectedTodo(null); // Deselect the todo
   }
 
   return (
