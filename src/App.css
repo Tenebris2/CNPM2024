@@ -245,7 +245,7 @@ body {
 
 .Calendar .header .btns span:hover {
   background-color: #ebebeb;
-  transition: all 300ms ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .Calendar .items {
@@ -268,7 +268,8 @@ body {
 .Calendar .items .item:hover {
   background-color: rgb(235, 235, 235);
   border-radius: 8px;
-  transition: 0.2s ease-in-out;
+  transition: 0.3s ease-in-out;
+  color: rgb(181, 138, 59);
 }
 
 /* Projects */
@@ -281,23 +282,29 @@ body {
   display: flex;
   align-items: center;
 }
+
 .Projects .header .title {
   display: flex;
   align-items: center;
   flex: 1;
 }
+
 .Projects .header .title p {
-  margin-left: 5px;
+  margin-left: 8px;
   font-size: 1.1rem;
   font-weight: bold;
 }
+
 .Projects .header .btns {
   display: flex;
   align-items: center;
+  transition: 0.3s;
 }
+
 .Projects .header .btns span.edit {
   margin-right: 5px;
 }
+
 .Projects .header .btns span {
   border-radius: 50%;
   cursor: pointer;
@@ -307,13 +314,32 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .Projects .header .btns span:hover {
   background-color: #ebebeb;
   transition: all 300ms ease-in-out;
 }
+
 .Projects .items {
-  padding: 0.5rem;
+  padding: 4px 0 8px 0;
 }
+
+.Projects .Project {
+  margin: 4px;
+  padding: 8px;
+  transition: 0.3s;
+}
+
+.Projects .Project:hover {
+  background-color: rgb(235, 235, 235);
+  border-radius: 8px;
+  color: rgb(181, 138, 59);
+}
+
+/* .Projects .items span:hover {
+  background-color: rgb(235, 235, 235);
+} */
+
 /* Project */
 .Project {
   position: relative;
@@ -356,7 +382,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 300ms ease-in-out;
+  transition: background 300ms;
 }
 .Project .btns .edit-delete span.edit:hover {
   background: #acffac;
@@ -605,10 +631,18 @@ body {
   margin: 5px;
   cursor: pointer;
 }
+
+.EditTodoForm .pick-project .projects .project:hover {
+  background: #0080ff;
+  color: white;
+  transition: 0.3s;
+}
+
 .EditTodoForm .pick-project .projects .active {
   background: #0080ff;
   color: white;
 }
+
 .EditTodoForm .cancel {
   position: absolute;
   top: 0;
