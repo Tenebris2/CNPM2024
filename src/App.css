@@ -502,6 +502,7 @@ body {
 .EditTodo .headerbar {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 24px;
 }
 
 .EditTodo .header {
@@ -517,6 +518,15 @@ body {
   font-weight: 900;
   font-size: 20px;
   color: black;
+  margin-right: 20px;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3;
+}
+
+.EditTodo button:hover {
+  opacity: 0.6;
 }
 
 /* .EditTodoForm .container {
@@ -537,7 +547,8 @@ body {
   border-radius: 8px;
   font-size: 1.2rem;
   /* margin-top: 20px; */
-  background-color: red;
+  background-color: rgb(244, 244, 244);
+  border: 1px solid black;
 }
 
 /* .TodoForm .text input:focus {

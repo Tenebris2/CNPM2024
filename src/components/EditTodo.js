@@ -4,6 +4,7 @@ import { TodoContext } from "../context";
 import moment from "moment";
 import firebase from "../firebase";
 import EditTodoForm from "./EditTodoForm";
+import { MdClose } from "react-icons/md";
 
 function EditTodo() {
   // STATE
@@ -56,8 +57,10 @@ function EditTodo() {
       {showForm && selectedTodo && (
         <div className="EditTodo">
           <div className="headerbar">
-            <div className="header">Edit Todo</div>
-            <button onClick={handleClose}>X</button> {/* Close button */}
+            <div className="header">Task:</div>
+            <button onClick={handleClose}>
+              <MdClose size={28} className="closeIcon" />
+            </button>
           </div>
           <div className="container">
             <EditTodoForm
