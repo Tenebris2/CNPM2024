@@ -9,18 +9,20 @@ import Todos from "./components/Todos";
 import EditTodo from "./components/EditTodo";
 function App() {
   return (
-    <div className="App">
-      <Sidebar>
-        <User />
-        <AddNewTodo />
-        <Calendar />
-        <Projects />
-      </Sidebar>
-      <Main>
-        <Todos />
-        <EditTodo />
-      </Main>
-    </div>
+    <body className="appBody">
+      <div className="App">
+        <Sidebar>
+          <User />
+          <AddNewTodo />
+          <Calendar />
+          <Projects />
+        </Sidebar>
+        <Main>
+          <Todos />
+          <EditTodo />
+        </Main>
+      </div>
+    </body>
   );
 }
 
