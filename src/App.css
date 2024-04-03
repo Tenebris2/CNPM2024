@@ -69,6 +69,26 @@ body {
   justify-content: flex-end;
 }
 
+.User .info button {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  padding: 4px 16px;
+  border-radius: 12px;
+}
+
+.User .info button:hover {
+  background-color: rgb(230, 180, 180);
+  color: blue;
+}
+
+.User .info .textOut {
+  margin-left: 4px;
+  font-size: 14px;
+}
+
 /* Modal */
 .Modal {
   position: fixed;

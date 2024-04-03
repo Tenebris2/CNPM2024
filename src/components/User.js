@@ -24,7 +24,7 @@ function User() {
         <p>Hanoi Ghoul</p>
         <button onClick={userSignOut}>
           <BoxArrowRight size={20} />
-          Sign out
+          <div className="textOut">Sign out</div>
         </button>
       </div>
     </div>
