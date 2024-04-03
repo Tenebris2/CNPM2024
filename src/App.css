@@ -47,8 +47,9 @@ body {
 .User {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 1rem;
+  margin: 0 20px;
 }
 
 .User .logo img {
@@ -108,6 +109,7 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
+
 .AddNewTodo .btn button:hover {
   filter: brightness(1.1);
   transition: all 300ms ease;
@@ -498,8 +500,9 @@ body {
 }
 .Todo .todo-container .text span {
   font-size: 0.8rem;
-  color: #bebebe;
+  color: black;
 }
+
 .Todo .todo-container .text .line {
   height: 1px;
   background: #bebebe;
@@ -508,6 +511,7 @@ body {
   width: 0;
   transition: width 250ms ease-in-out;
 }
+
 .Todo .todo-container .text .line-through {
   width: 100%;
 }

@@ -3,6 +3,8 @@ import logo from "../images/ghould.png";
 import { auth } from "../firebase/FirebaseForLogin";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { BoxArrowRight } from "react-bootstrap-icons";
+
 function User() {
   const navigate = useNavigate();
   const userSignOut = () => {
@@ -20,7 +22,10 @@ function User() {
       </div>
       <div className="info">
         <p>Hanoi Ghoul</p>
-        <button onClick={userSignOut}>Logout</button>
+        <button onClick={userSignOut}>
+          <BoxArrowRight size={20} />
+          Sign out
+        </button>
       </div>
     </div>
   );
