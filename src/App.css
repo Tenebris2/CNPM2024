@@ -82,6 +82,7 @@ body {
 .User .info button:hover {
   background-color: rgb(230, 180, 180);
   color: blue;
+  cursor: pointer;
 }
 
 .User .info .textOut {
@@ -115,24 +116,34 @@ body {
 .AddNewTodo .btn {
   padding: 1rem;
   width: 100%;
-  height: 90px;
+  height: 80px;
 }
 
 .AddNewTodo .btn button {
+  border: 2px solid #24b4fb;
+  background-color: #24b4fb;
+  border-radius: 0.9em;
+  padding: 0.8em 1.2em 0.8em 1em;
+  transition: all ease-in-out 0.2s;
+  font-size: 16px;
   width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 3px;
-  font-size: 1rem;
-  background-color: #0080ff;
+  font-weight: 600;
+  font-size: 16px;
   color: white;
-  font-weight: bold;
-  cursor: pointer;
 }
 
-.AddNewTodo .btn button:hover {
-  filter: brightness(1.1);
-  transition: all 300ms ease;
+.AddNewTodo .btn button span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;
+}
+
+.AddNewTodo button:hover {
+  background-color: #0071e2;
+  color: pink;
+  cursor: pointer;
 }
 
 /* AddNewTodo form */
@@ -226,13 +237,15 @@ body {
 }
 .TodoForm .confirm button {
   width: 100%;
-  height: 40px;
+  height: 60px;
   background: #0080ff;
   color: white;
   font-size: 1.1rem;
   border: none;
-  border-radius: 0 0 4px 4px;
+  border-radius: 0 0 8px 8px;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 28px;
 }
 /* Calendar */
 .Calendar {

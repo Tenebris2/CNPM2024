@@ -52,7 +52,11 @@ function TodoForm({
         <div className="pick-day">
           <div className="title">
             <p>Due date</p>
-            <DatePicker value={day} onChange={(day) => setDay(day)} />
+            <DatePicker
+              value={day}
+              onChange={(day) => setDay(day)}
+              format="dd-MM-yy"
+            />
           </div>
         </div>
         <div className="pick-time">
