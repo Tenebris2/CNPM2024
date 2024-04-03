@@ -328,6 +328,7 @@ body {
   margin: 4px;
   padding: 8px;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .Projects .Project:hover {
@@ -472,6 +473,7 @@ body {
   display: flex;
   align-items: center;
 }
+
 .Todo .todo-container span {
   cursor: pointer;
 }
