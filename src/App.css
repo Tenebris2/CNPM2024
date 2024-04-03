@@ -719,14 +719,47 @@ body {
 }
 
 /* Next7Days */
-.Next7Days .day {
-  margin: 5px;
-  display: flex;
+.Next7Days {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
 }
+
+.day {
+  display: grid;
+  grid-template-columns: auto 1fr; /* Two columns: one for name, one for total-todos and todos */
+  grid-template-rows: auto; /* Only one row */
+  grid-gap: 5px;
+}
+
+.day .name {
+  grid-column: 1;
+}
+
+.day .total-todos {
+  grid-column: 2;
+}
+
+.day .todos {
+  grid-column: 1 / span 2; /* Span across both columns */
+}
+
 .Next7Days .day .name {
   font-weight: bold;
   font-size: 1rem;
 }
 .Next7Days .day .total-todos {
-  margin-left: 10px;
+  margin-left: 12px;
+}
+
+.day.today {
+  border: 1px solid black; /* Adjust the border style as needed */
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.day.tomorrow {
+  border: 1px solid black; /* Adjust the border style as needed */
+  border-radius: 20px;
+  padding: 20px;
 }
