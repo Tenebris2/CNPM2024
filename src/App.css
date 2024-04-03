@@ -457,7 +457,7 @@ body {
   text-transform: capitalize;
   font-size: 50px;
   font-weight: bold;
-  padding-bottom: 2px;
+  padding-bottom: 20px;
 }
 
 .Todos .todos {
@@ -466,7 +466,7 @@ body {
 
 /* Todo */
 .Todo {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem 0 1rem;
 }
 .Todo .todo-container {
   display: flex;
@@ -475,6 +475,19 @@ body {
 .Todo .todo-container span {
   cursor: pointer;
 }
+
+.Todo .todo-container {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid rgb(43, 31, 31); /* Add this line to set the bottom border */
+}
+
+/* Add this style to ensure the last todo doesn't have a bottom border */
+.Todo:last-child .todo-container {
+  border-bottom: none;
+}
+
 .Todo .todo-container .text {
   position: relative;
   flex: 1;
