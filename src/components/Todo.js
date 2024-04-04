@@ -52,7 +52,7 @@ function Todo({ todo }) {
   return (
     <div className="Todo" onClick={handleTodoClick}>
       <div
-        className="todo-container"
+        className="todo-container hvr-grow-shadow"
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
