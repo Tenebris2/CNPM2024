@@ -42,27 +42,47 @@ const SignUp = () => {
       <div className="auth-form-container">
         <form className="login-form" onSubmit={signUp}>
           <h1>Sign up</h1>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Re-enter your password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
+
+          <label className="input">
+            <input
+              className="input__field"
+              type="email"
+              placeholder=" "
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <span className="input__label">Enter your email</span>
+          </label>
+
+          <label className="input">
+            <input
+              className="input__field"
+              type="password"
+              placeholder=" "
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <span className="input__label">Enter your password</span>
+          </label>
+
+          <label className="input">
+            <input
+              className="input__field"
+              type="password"
+              placeholder=" "
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            <span className="input__label">Re-enter your password</span>
+          </label>
+
           <button type="submit">Sign up</button>
-          <div className="link-btn" onClick={navigateToSignIn}>
-            Already have an account? Login
+          <div
+            className="link-btn"
+            onClick={navigateToSignIn}
+            data-replace="Sign in"
+          >
+            <span>Already have an account?</span>
           </div>
         </form>
       </div>

@@ -6,7 +6,6 @@
   justify-content: center;
   color: black;
   background-image: linear-gradient(79deg, white, white, #c66fbc);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .Signup .auth-form-container,
@@ -25,9 +24,12 @@
 
 @media screen and (min-width: 600px) {
   .Signup .auth-form-container {
-    padding: 5rem;
-    border: 1px solid black;
-    border-radius: 10px;
+    background: var(--color-background);
+    padding: 80px;
+    margin-top: 0;
+    border-radius: 12px;
+    border: 3px solid var(--color-shadow, currentColor);
+    box-shadow: 0.3rem 0.3rem 0 var(--color-shadow, currentColor);
   }
 }
 
@@ -39,7 +41,7 @@
 }
 
 .Signup input {
-  margin: 0.5rem 0 0 0;
+  margin: 0.5rem 0 0.2rem 0;
   border-radius: 10px;
   padding: 12px;
   border: 1px solid black;
@@ -48,7 +50,7 @@
 
 .Signup button {
   border: none;
-  background-color: wheat;
+  background-color: #fab700;
   padding: 14px;
   border-radius: 10px;
   cursor: pointer;
@@ -60,14 +62,15 @@
 }
 
 .Signup button:hover {
-  background-color: rgb(241, 200, 123);
+  background-color: pink;
+  color: blue;
 }
 
 .Signup .link-btn {
   margin-top: 20px;
   background: none;
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   color: black;
   cursor: pointer;
   border: none;
@@ -78,6 +81,87 @@
   transition: 0.3s;
 }
 
-.Signup .link-btn:hover {
-  color: red;
+.Signup .input {
+  position: relative;
+}
+
+.Signup .input__label {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  padding: 0;
+  background: pink;
+  white-space: nowrap;
+  transform: translate(0, 0);
+  transform-origin: 0 0;
+  background: white;
+  transition: transform 120ms ease-in, color 120ms ease-in; /* Add color transition */
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: text;
+}
+
+.Signup .input__field {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border: 2px solid currentColor;
+  padding: 12px;
+  color: currentColor;
+  background: transparent;
+  border-radius: 8px;
+  transition: border-color 120ms ease-in; /* Add transition for border-color */
+}
+
+.Signup .input__field:focus + .input__label {
+  /* Adjusted selector */
+  transform: translate(0, -100%) scale(0.8); /* Adjusted translation */
+  color: #fab700;
+}
+
+.Signup .input__field:not(:placeholder-shown) + .input__label {
+  transform: translate(0, -100%) scale(0.8); /* Adjusted translation */
+  color: #fab700;
+}
+
+.Signup .link-btn {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+
+.Signup .link-btn::before,
+.Signup .link-btn::after {
+  content: "";
+  position: absolute;
+  justify-content: center;
+  width: 100%;
+  left: 0;
+}
+
+.Signup .link-btn::after {
+  content: attr(data-replace);
+  height: 100%;
+  transform-origin: 100% 50%;
+  transform: translate3d(-200%, 0, 0);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+  color: #47a9cd;
+}
+
+.Signup .link-btn:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+
+.Signup .link-btn:hover::after {
+  transform: translate3d(0, 0, 0);
+}
+
+.Signup .link-btn span {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.Signup .link-btn:hover span {
+  transform: translate3d(200%, 0, 0);
 }
