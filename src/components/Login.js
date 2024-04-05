@@ -62,19 +62,27 @@ const Login = () => {
       <div className="auth-form-container">
         <form className="login-form" onSubmit={signIn}>
           <h1>Sign in</h1>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          ></input>
+          <label className="input">
+            <input
+              className="input__field"
+              type="email"
+              placeholder=" "
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <span className="input__label">Enter your email</span>
+          </label>
 
-          <input
-            type="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
+          <label className="input">
+            <input
+              className="input__field"
+              type="password"
+              placeholder=" "
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <span className="input__label">Enter your password</span>
+          </label>
 
           <button type="submit">Sign in</button>
           <div className="link-btn" onClick={navigateToSignUp}>
