@@ -16,10 +16,17 @@ const SignUp = () => {
 
   const signUp = (e) => {
     e.preventDefault();
+    
     if (password !== confirmPassword) {
       alert("Passwords do not match. Please re-enter.");
       return;
     }
+    
+    if (password.length < 6) {
+      alert("Password should be at least 6 characters long.");
+      return;
+    }
+    
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
@@ -28,7 +35,8 @@ const SignUp = () => {
       .catch((error) => {
         console.log(error);
       });
-  };;
+  };
+  
 
   return (
     <div className="Signup">
