@@ -50,7 +50,7 @@ function Todo({ todo }) {
   };
 
   return (
-    <div className="Todo" onClick={handleTodoClick}>
+    <div className="Todo">
       <div
         className="todo-container hvr-grow-shadow"
         onMouseEnter={() => setHover(true)}
@@ -67,7 +67,7 @@ function Todo({ todo }) {
             </span>
           )}
         </div>
-        <div className="text">
+        <div className="text" onClick={handleTodoClick}>
           <p style={{ color: todo.checked ? "#bebebe" : "#000000" }}>
             {todo.text}
           </p>

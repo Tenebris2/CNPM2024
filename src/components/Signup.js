@@ -28,7 +28,7 @@ const SignUp = () => {
       .catch((error) => {
         console.log(error);
       });
-  };;
+  };
 
   return (
     <div className="Signup">
@@ -53,10 +53,10 @@ const SignUp = () => {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
+          <button type="submit">Sign up</button>
           <div className="link-btn" onClick={navigateToSignIn}>
             Already have an account? Login
           </div>
-          <button type="submit">Sign up</button>
         </form>
       </div>
     </div>
