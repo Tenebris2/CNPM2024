@@ -1,25 +1,34 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase/FirebaseForLogin";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import "./css/Signup.css";
+
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // Initialize useNavigate
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
+
+  const navigateToSignIn = () => {
+    navigate("/");
+  };
 
   const signUp = (e) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      alert("Passwords do not match. Please re-enter.");
+      return;
+    }
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
-        // Redirect to "/" after successful sign up
-        navigate("/app");
+        navigate("/app"); // Navigate to "/app" after successful sign up
       })
       .catch((error) => {
         console.log(error);
       });
-  };
+  };;
 
   return (
     <div className="Signup">
@@ -31,15 +40,22 @@ const SignUp = () => {
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-          ></input>
-
+          />
           <input
             type="password"
             placeholder="Enter your password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-          ></input>
-
+          />
+          <input
+            type="password"
+            placeholder="Re-enter your password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+          <div className="link-btn" onClick={navigateToSignIn}>
+            Already have an account? Login
+          </div>
           <button type="submit">Sign up</button>
         </form>
       </div>
