@@ -39,10 +39,8 @@ function Project({ project, edit }) {
   };
 
   return (
-    <div className="Project">
-      <div className="name" onClick={() => setSelectedProject(project.name)}>
-        {project.name}
-      </div>
+    <div className="Project" onClick={() => setSelectedProject(project.name)}>
+      <div className="name">{project.name}</div>
       <div className="btns">
         {edit ? (
           <div className="edit-delete">

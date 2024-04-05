@@ -47,8 +47,9 @@ body {
 .User {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 1rem;
+  margin: 0 20px;
 }
 
 .User .logo img {
@@ -66,6 +67,27 @@ body {
   text-decoration: none;
   display: flex;
   justify-content: flex-end;
+}
+
+.User .info button {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  padding: 4px 16px;
+  border-radius: 12px;
+}
+
+.User .info button:hover {
+  background-color: rgb(230, 180, 180);
+  color: blue;
+  cursor: pointer;
+}
+
+.User .info .textOut {
+  margin-left: 4px;
+  font-size: 14px;
 }
 
 /* Modal */
@@ -94,23 +116,34 @@ body {
 .AddNewTodo .btn {
   padding: 1rem;
   width: 100%;
-  height: 90px;
+  height: 80px;
 }
 
 .AddNewTodo .btn button {
+  border: 2px solid #24b4fb;
+  background-color: #24b4fb;
+  border-radius: 0.9em;
+  padding: 0.8em 1.2em 0.8em 1em;
+  transition: all ease-in-out 0.2s;
+  font-size: 16px;
   width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 3px;
-  font-size: 1rem;
-  background-color: #0080ff;
+  font-weight: 600;
+  font-size: 16px;
   color: white;
-  font-weight: bold;
-  cursor: pointer;
 }
-.AddNewTodo .btn button:hover {
-  filter: brightness(1.1);
-  transition: all 300ms ease;
+
+.AddNewTodo .btn button span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;
+}
+
+.AddNewTodo button:hover {
+  background-color: #0071e2;
+  color: pink;
+  cursor: pointer;
 }
 
 /* AddNewTodo form */
@@ -204,13 +237,15 @@ body {
 }
 .TodoForm .confirm button {
   width: 100%;
-  height: 40px;
+  height: 60px;
   background: #0080ff;
   color: white;
   font-size: 1.1rem;
   border: none;
-  border-radius: 0 0 4px 4px;
+  border-radius: 0 0 8px 8px;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 28px;
 }
 /* Calendar */
 .Calendar {
@@ -328,6 +363,7 @@ body {
   margin: 4px;
   padding: 8px;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .Projects .Project:hover {
@@ -457,7 +493,7 @@ body {
   text-transform: capitalize;
   font-size: 50px;
   font-weight: bold;
-  padding-bottom: 2px;
+  padding-bottom: 20px;
 }
 
 .Todos .todos {
@@ -466,15 +502,39 @@ body {
 
 /* Todo */
 .Todo {
-  padding: 0.5rem 1rem;
+  padding: 0 16px 0 8px;
+  border-bottom: 1px solid rgb(43, 31, 31);
 }
+
+.Todo:last-child {
+  border-bottom: none;
+  margin-bottom: 2px;
+}
+
 .Todo .todo-container {
   display: flex;
   align-items: center;
+  max-width: 1100px;
+  max-height: 200px;
+  overflow: hidden;
 }
+
 .Todo .todo-container span {
   cursor: pointer;
 }
+
+.Todo .todo-container {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  /* border-bottom: 1px solid rgb(43, 31, 31); */
+}
+
+/* Add this style to ensure the last todo doesn't have a bottom border */
+.Todo:last-child .todo-container {
+  border-bottom: none;
+}
+
 .Todo .todo-container .text {
   position: relative;
   flex: 1;
@@ -483,8 +543,9 @@ body {
 }
 .Todo .todo-container .text span {
   font-size: 0.8rem;
-  color: #bebebe;
+  color: black;
 }
+
 .Todo .todo-container .text .line {
   height: 1px;
   background: #bebebe;
@@ -493,6 +554,7 @@ body {
   width: 0;
   transition: width 250ms ease-in-out;
 }
+
 .Todo .todo-container .text .line-through {
   width: 100%;
 }
@@ -667,14 +729,67 @@ body {
 }
 
 /* Next7Days */
-.Next7Days .day {
-  margin: 5px;
-  display: flex;
+.Next7Days {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
 }
+
+.day {
+  display: grid;
+  grid-template-columns: auto 1fr; /* Two columns: one for name, one for total-todos and todos */
+  grid-template-rows: auto; /* Only one row */
+  grid-gap: 5px;
+}
+
+.day .name {
+  grid-column: 1;
+}
+
+.day .total-todos {
+  grid-column: 2;
+}
+
+.day .todos {
+  grid-column: 1 / span 2; /* Span across both columns */
+}
+
 .Next7Days .day .name {
   font-weight: bold;
   font-size: 1rem;
 }
 .Next7Days .day .total-todos {
-  margin-left: 10px;
+  margin-left: 12px;
+}
+
+.day.today {
+  border: 1px solid black; /* Adjust the border style as needed */
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.day.tomorrow {
+  border: 1px solid black; /* Adjust the border style as needed */
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.hvr-grow-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+
+.hvr-grow-shadow:hover,
+.hvr-grow-shadow:focus,
+.hvr-grow-shadow:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.02); /* Adjust the scale as needed */
+  transform: scale(1.02); /* Adjust the scale as needed */
 }

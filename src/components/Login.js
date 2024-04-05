@@ -49,7 +49,7 @@ const Login = () => {
     };
   }, []);
 
- /* const userSignOut = () => {
+  /* const userSignOut = () => {
     signOut(auth)
       .then(() => {
         console.log("sign out successful");
@@ -81,7 +81,6 @@ const Login = () => {
             Don't have an account? Sign up
           </div>
         </form>
-         
       </div>
     </div>
   );

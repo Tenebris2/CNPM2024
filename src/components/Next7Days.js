@@ -27,14 +27,21 @@ function Next7Days({ todos }) {
   return (
     <div className="Next7Days">
       {weekTodos.map((day) => (
-        <div key={day.number}>
-          <div className="day">
-            <div className="name">
-              {moment(day.number, "d").format("dddd")}
-              {day.number === moment().format("d") && " (Today)"}
-            </div>
-            <div className="total-todos">({day.todos.length})</div>
+        <div
+          key={day.number}
+          className={`day ${
+            day.number === moment().format("d")
+              ? "today"
+              : day.number === moment().add(1, "days").format("d")
+              ? "tomorrow"
+              : ""
+          }`}
+        >
+          <div className="name">
+            {moment(day.number, "d").format("dddd")}
+            {day.number === moment().format("d") && " (Today)"}
           </div>
+          <div className="total-todos">({day.todos.length})</div>
           <div className="todos">
             {day.todos.map((todo) => (
               <Todo key={todo.id} todo={todo} />
