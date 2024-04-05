@@ -85,8 +85,13 @@ const Login = () => {
           </label>
 
           <button type="submit">Sign in</button>
-          <div className="link-btn" onClick={navigateToSignUp}>
-            Don't have an account? Sign up
+
+          <div
+            className="link-btn"
+            onClick={navigateToSignUp}
+            data-replace="Sign up"
+          >
+            <span>Don't have an account?</span>
           </div>
         </form>
       </div>

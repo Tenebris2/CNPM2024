@@ -59,14 +59,15 @@ body {
 }
 
 .Login button:hover {
-  background-color: rgb(241, 200, 123);
+  background-color: pink;
+  color: blue;
 }
 
 .Login .link-btn {
   margin-top: 20px;
   background: none;
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   color: black;
   cursor: pointer;
   border: none;
@@ -75,10 +76,6 @@ body {
   color: black;
   font-weight: 600;
   transition: 0.3s;
-}
-
-.Login .link-btn:hover {
-  color: red;
 }
 
 @media screen and (min-width: 600px) {
@@ -133,4 +130,46 @@ body {
 .Login .input__field:not(:placeholder-shown) + .input__label {
   transform: translate(0, -100%) scale(0.8); /* Adjusted translation */
   color: #fab700;
+}
+
+.Login .link-btn {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+
+.Login .link-btn::before,
+.Login .link-btn::after {
+  content: "";
+  position: absolute;
+  justify-content: center;
+  width: 100%;
+  left: 0;
+}
+
+.Login .link-btn::after {
+  content: attr(data-replace);
+  height: 100%;
+  transform-origin: 100% 50%;
+  transform: translate3d(200%, 0, 0);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+  color: #47a9cd;
+}
+
+.Login .link-btn:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+
+.Login .link-btn:hover::after {
+  transform: translate3d(0, 0, 0);
+}
+
+.Login .link-btn span {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.Login .link-btn:hover span {
+  transform: translate3d(-200%, 0, 0);
 }
