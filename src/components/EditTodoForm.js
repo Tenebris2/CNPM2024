@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Bell, CalendarDay, Clock, Palette, X } from "react-bootstrap-icons";
 import {
   DatePicker,
@@ -10,21 +10,46 @@ import DateFnsUtils from "@date-io/date-fns";
 function EditTodoForm({
   handleSubmit,
   heading = false,
-  text,
-  setText,
-  day,
-  setDay,
-  time,
-  setTime,
-  todoProject,
-  setTodoProject,
+  initialText,
+  initialDay,
+  initialTime,
+  initialTodoProject,
   projects,
   showButtons = false,
   setShowModal = false,
 }) {
+  const [text, setText] = useState(initialText);
+  const [day, setDay] = useState(initialDay);
+  const [time, setTime] = useState(initialTime);
+  const [todoProject, setTodoProject] = useState(initialTodoProject);
+
+  // State to track form data changes
+  const [formData, setFormData] = useState({
+    text: initialText,
+    day: initialDay,
+    time: initialTime,
+    todoProject: initialTodoProject,
+  });
+
+  // Update formData state when any form field changes
+  useEffect(() => {
+    setFormData({
+      text,
+      day,
+      time,
+      todoProject,
+    });
+  }, [text, day, time, todoProject]);
+
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <form onSubmit={handleSubmit} className="EditTodoForm">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit(formData);
+        }}
+        className="EditTodoForm"
+      >
         <div className="text">
           {heading && <h3>{heading}</h3>}
           <input
@@ -35,20 +60,6 @@ function EditTodoForm({
             autoFocus
           />
         </div>
-        {/* <div className="text">
-          <input
-            type="text"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder="Description"
-            autoFocus
-          />
-        </div> */}
-        {/* <div c
-        {/* <div className="remind">
-          <Bell />
-          <p>Remind Me!</p>
-        </div> */}
         <div className="pick-day">
           <div className="title">
             <p>Due date</p>
@@ -89,6 +100,7 @@ function EditTodoForm({
               </div>
             )}
           </div>
+          <button type="submit">Save</button>
         </div>
         {showButtons && (
           <div>
@@ -106,3 +118,4 @@ function EditTodoForm({
 }
 
 export default EditTodoForm;
+  
