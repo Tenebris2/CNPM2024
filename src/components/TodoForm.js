@@ -68,27 +68,26 @@ function TodoForm({
         </div>
         <div className="pick-project">
           <div className="title">
-            <Palette />
-            <p>Choose a project</p>
-          </div>
-          <div className="projects">
-            {projects.length > 0 ? (
-              projects.map((project) => (
-                <div
-                  className={`project ${
-                    todoProject === project.name ? "active" : ""
-                  }`}
-                  onClick={() => setTodoProject(project.name)}
-                  key={project.id}
+            <p>List</p>
+            <div className="projects">
+              {projects.length > 0 ? (
+                <select
+                  className="selectList"
+                  value={todoProject}
+                  onChange={(e) => setTodoProject(e.target.value)}
                 >
-                  {project.name}
+                  {projects.map((project) => (
+                    <option value={project.name} key={project.id}>
+                      {project.name}
+                    </option>
+                  ))}
+                </select>
+              ) : (
+                <div style={{ color: "#ff0000" }}>
+                  Please add a project before proceeding
                 </div>
-              ))
-            ) : (
-              <div style={{ color: "#ff0000" }}>
-                Please add a project before proceeding
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
         {showButtons && (

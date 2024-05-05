@@ -151,7 +151,7 @@ body {
   padding: 20px;
   height: 600px;
   width: 600px;
-  background: white;
+  background: rgb(244, 244, 244);
   border-radius: 12px;
   font-size: 24px;
 }
@@ -163,10 +163,13 @@ body {
   border-radius: 8px;
   font-size: 1.2rem;
   margin-top: 20px;
+  background-color: rgb(244, 244, 244);
+  border: 2px solid rgb(180, 180, 180);
 }
 
-/* .TodoForm .text input:focus {
-} */
+.TodoForm .text input:focus {
+  outline: none;
+}
 
 /* .TodoForm .remind {
   display: flex;
@@ -829,7 +832,7 @@ button.saveChangesBtn {
 }
 
 .editConBtn .deleteTaskBtn {
-  border: 1px solid rgb(180, 180, 180);
+  border: 2px solid rgb(180, 180, 180);
   transition: 0.3s;
 }
 
@@ -849,11 +852,45 @@ button.saveChangesBtn {
   margin-left: 110px;
 }
 
+.EditTodoForm .text input {
+  padding: 1rem;
+  width: 100%;
+  /* margin-bottom: 0.5rem; */
+  border-radius: 8px;
+  font-size: 1.2rem;
+
+  background-color: rgb(244, 244, 244);
+  border: 2px solid rgb(180, 180, 180);
+}
+
 .EditTodoForm .pick-project .title .projects .selectList {
   background-color: rgb(244, 244, 244);
   border-radius: 8px;
-  border: 1px solid rgb(180, 180, 180);
+  border: 2px solid rgb(180, 180, 180);
   font-size: 16px;
   height: 40px;
   padding: 10px;
+}
+
+.TodoForm .title {
+  font-size: 20px;
+  margin: 0;
+}
+
+.TodoForm .pick-project .projects {
+  padding: 0px;
+  margin-left: 110px;
+}
+
+.TodoForm .pick-project .title .projects .selectList {
+  background-color: rgb(244, 244, 244);
+  border-radius: 8px;
+  border: 2px solid rgb(180, 180, 180);
+  font-size: 16px;
+  height: 40px;
+  padding: 10px;
+}
+
+.EditTodoForm .text input:focus {
+  outline: none;
 }
