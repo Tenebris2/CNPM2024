@@ -79,8 +79,7 @@ function EditTodoForm({
         </div>
         <div className="pick-project">
           <div className="title">
-            <Palette />
-            <p>Choose a project</p>
+            <p>List</p>
           </div>
           <div className="projects">
             {projects.length > 0 ? (
@@ -101,12 +100,12 @@ function EditTodoForm({
               </div>
             )}
           </div>
-          <div className="editConBtn">
-            <button className="deleteTaskBtn">Delete task</button>
-            <button className="saveChangesBtn" type="submit">
-              Save changes
-            </button>
-          </div>
+        </div>
+        <div className="editConBtn">
+          <button className="deleteTaskBtn">Delete task</button>
+          <button className="saveChangesBtn" type="submit">
+            Save changes
+          </button>
         </div>
         {showButtons && (
           <div>
