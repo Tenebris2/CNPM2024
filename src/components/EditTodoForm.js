@@ -100,7 +100,12 @@ function EditTodoForm({
               </div>
             )}
           </div>
-          <button type="submit">Save</button>
+          <div className="editConBtn">
+            <button className="deleteTaskBtn">Delete task</button>
+            <button className="saveChangesBtn" type="submit">
+              Save changes
+            </button>
+          </div>
         </div>
         {showButtons && (
           <div>
@@ -118,4 +123,3 @@ function EditTodoForm({
 }
 
 export default EditTodoForm;
-  

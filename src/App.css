@@ -109,7 +109,7 @@ body {
 }
 /* AddNewTodo */
 .AddNewTodo {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgb(180, 180, 180);
   margin: 0 20px;
 }
 
@@ -249,7 +249,7 @@ body {
 }
 /* Calendar */
 .Calendar {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgb(180, 180, 180);
   margin: 20px 20px;
 }
 .Calendar .header {
@@ -309,7 +309,7 @@ body {
 
 /* Projects */
 .Projects {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgb(180, 180, 180);
   margin: 0 20px;
 }
 
@@ -792,4 +792,49 @@ body {
   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
   -webkit-transform: scale(1.02); /* Adjust the scale as needed */
   transform: scale(1.02); /* Adjust the scale as needed */
+}
+/* 
+button.saveChangesBtn {
+  background-color: rgb(255, 212, 59);
+  font-size: 16px;
+  padding: 20px;
+} */
+
+.editConBtn {
+  position: relative;
+  top: 220px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.editConBtn button {
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0;
+  width: 210px;
+  height: 50px;
+  border-radius: 12px;
+  text-decoration: none;
+}
+
+.editConBtn .saveChangesBtn {
+  background-color: rgb(255, 212, 59);
+  transition: 0.3s;
+}
+
+.editConBtn .saveChangesBtn:hover {
+  opacity: 0.7;
+  background-color: rgb(255, 212, 59);
+}
+
+.editConBtn .deleteTaskBtn {
+  border: 1px solid rgb(180, 180, 180);
+  transition: 0.3s;
+}
+
+.editConBtn .deleteTaskBtn:hover {
+  color: #000000;
+  background-color: rgb(180, 180, 180);
+  cursor: pointer;
 }
