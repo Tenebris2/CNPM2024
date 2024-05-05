@@ -16,8 +16,7 @@ function Projects() {
     <div className="Projects">
       <div className="header">
         <div className="title">
-          <Palette size="18" />
-          <p>Projects</p>
+          <p>Lists</p>
         </div>
         <div className="btns">
           {showMenu && projects.length > 0 && (
