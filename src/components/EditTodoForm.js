@@ -53,6 +53,7 @@ function EditTodoForm({
         <div className="text">
           {heading && <h3>{heading}</h3>}
           <input
+            spellcheck="false"
             type="text"
             value={text}
             onChange={(e) => setText(e.target.value)}

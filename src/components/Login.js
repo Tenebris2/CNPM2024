@@ -64,6 +64,7 @@ const Login = () => {
           <h1>Sign in</h1>
           <label className="input">
             <input
+              spellcheck="false"
               className="input__field"
               type="email"
               placeholder=" "
@@ -75,6 +76,7 @@ const Login = () => {
 
           <label className="input">
             <input
+              spellcheck="false"
               className="input__field"
               type="password"
               placeholder=" "

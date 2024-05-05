@@ -45,6 +45,7 @@ const SignUp = () => {
 
           <label className="input">
             <input
+              spellcheck="false"
               className="input__field"
               type="email"
               placeholder=" "
@@ -56,6 +57,7 @@ const SignUp = () => {
 
           <label className="input">
             <input
+              spellcheck="false"
               className="input__field"
               type="password"
               placeholder=" "
@@ -67,6 +69,7 @@ const SignUp = () => {
 
           <label className="input">
             <input
+              spellcheck="false"
               className="input__field"
               type="password"
               placeholder=" "
