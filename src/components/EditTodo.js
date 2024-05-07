@@ -28,17 +28,32 @@ function EditTodo() {
   }, [selectedTodo]);
 
   const handleSubmit = (formData) => {
-    firebase
-      .firestore()
-      .collection("todos")
-      .doc(selectedTodo.id)
-      .update({
-        text: formData.text,
+    if (formData.text.trim() === "") {
+      return; // Don't save if text is empty
+    }
+
+    const todoRef = firebase.firestore().collection("todos").doc(selectedTodo.id);
+
+    if (formData.text !== selectedTodo.text) {
+      todoRef.update({ text: formData.text });
+    }
+    if (formData.day !== selectedTodo.date || formData.time !== selectedTodo.time) {
+      todoRef.update({
         date: moment(formData.day).format("MM/DD/YYYY"),
         day: moment(formData.day).format("d"),
         time: moment(formData.time).format("hh:mm A"),
-        projectName: formData.todoProject,
       });
+    }
+    if (formData.todoProject !== selectedTodo.projectName) {
+      todoRef.update({ projectName: formData.todoProject });
+    }
+
+    setSelectedTodo(null); // Deselect the todo
+  };
+
+  const handleDelete = () => {
+    firebase.firestore().collection("todos").doc(selectedTodo.id).delete();
+    setSelectedTodo(null); // Deselect the todo
   };
 
   function handleClose() {
@@ -58,6 +73,7 @@ function EditTodo() {
           <div className="container">
             <EditTodoForm
               handleSubmit={handleSubmit}
+              handleDelete={handleDelete}
               initialText={text}
               initialDay={day}
               initialTime={time}

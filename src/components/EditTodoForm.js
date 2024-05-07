@@ -9,6 +9,7 @@ import DateFnsUtils from "@date-io/date-fns";
 
 function EditTodoForm({
   handleSubmit,
+  handleDelete,
   heading = false,
   initialText,
   initialDay,
@@ -53,7 +54,7 @@ function EditTodoForm({
         <div className="text">
           {heading && <h3>{heading}</h3>}
           <input
-            spellcheck="false"
+            spellCheck="false"
             type="text"
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -103,7 +104,9 @@ function EditTodoForm({
         </div>
 
         <div className="editConBtn">
-          <button className="deleteTaskBtn">Delete task</button>
+          <button className="deleteTaskBtn" onClick={handleDelete}>
+            Delete task
+          </button>
           <button className="saveChangesBtn" type="submit">
             Save changes
           </button>
