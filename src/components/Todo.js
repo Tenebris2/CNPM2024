@@ -32,12 +32,12 @@ function Todo({ todo }) {
   };
 
   const repeatNextDay = (todo) => {
-    const nextDayDate = moment(todo.date, "MM/DD/YYYY").add(1, "days");
+    const nextDayDate = moment(todo.date, "DD/MM/YYYY").add(1, "days");
 
     const repeatedTodo = {
       ...todo,
       checked: false,
-      date: nextDayDate.format("MM/DD/YYYY"),
+      date: nextDayDate.format("DD/MM/YYYY"),
       day: nextDayDate.format("d"),
     };
 
@@ -73,7 +73,7 @@ function Todo({ todo }) {
             {todo.text}
           </p>
           <span className="tagTodo">
-            {todo.time} &nbsp; | &nbsp; {todo.projectName}
+            {todo.time} &nbsp; | {todo.date} | &nbsp; {todo.projectName}
           </span>
           <div className={`line ${todo.checked ? "line-through" : ""}`}></div>
         </div>

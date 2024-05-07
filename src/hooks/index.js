@@ -30,14 +30,14 @@ export function useFilterTodos(todos, selectedProject) {
 
   useEffect(() => {
     let data;
-    const todayDateFormated = moment().format("MM/DD/YYYY");
+    const todayDateFormated = moment().format("DD/MM/YYYY");
 
     if (selectedProject === "Today") {
       data = todos.filter((todo) => todo.date === todayDateFormated);
     } else if (selectedProject === "Upcoming") {
       data = todos.filter((todo) => {
-        const todoDate = moment(todo.date, "MM/DD/YYYY");
-        const todayDate = moment(todayDateFormated, "MM/DD/YYYY");
+        const todoDate = moment(todo.date, "DD/MM/YYYY");
+        const todayDate = moment(todayDateFormated, "DD/MM/YYYY");
 
         const diffDays = todoDate.diff(todayDate, "days");
 
