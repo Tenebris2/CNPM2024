@@ -5,6 +5,7 @@ import {
   CheckCircleFill,
   Circle,
   Trash,
+  ChevronRight,
 } from "react-bootstrap-icons";
 import { TodoContext } from "../context";
 import firebase from "../firebase";
@@ -83,12 +84,12 @@ function Todo({ todo }) {
             </span>
           )}
         </div>
-        <div className="delete-todo" onClick={() => handleDelete(todo)}>
-          {(hover || todo.checked) && (
+        <div className="delete-todo" onClick={handleTodoClick}>
+          {
             <span>
-              <Trash />
+              <ChevronRight />
             </span>
-          )}
+          }
         </div>
       </div>
     </div>
