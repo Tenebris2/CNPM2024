@@ -488,7 +488,7 @@ body {
   border-radius: 8px;
   opacity: 0.9;
   padding: 0 0 0 32px;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 .Todos .selected-project {
@@ -500,6 +500,10 @@ body {
 }
 
 .Todos .todos {
+  overflow-y: auto;
+}
+
+.todos {
   overflow-y: auto;
 }
 
@@ -893,4 +897,9 @@ button.saveChangesBtn {
 
 .EditTodoForm .text input:focus {
   outline: none;
+}
+
+.Todos .todos {
+  height: 90%;
+  overflow-y: auto;
 }
