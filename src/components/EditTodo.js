@@ -18,7 +18,7 @@ function EditTodo() {
   useEffect(() => {
     if (selectedTodo) {
       setText(selectedTodo.text);
-      setDay(moment(selectedTodo.date, "MM/DD/YYYY").toDate());
+      setDay(moment(selectedTodo.date, "DD/MM/YYYY").toDate());
       setTime(moment(selectedTodo.time, "hh:mm A").toDate());
       setTodoProject(selectedTodo.projectName);
       setShowForm(true); // Show form when todo is selected
@@ -32,14 +32,20 @@ function EditTodo() {
       return; // Don't save if text is empty
     }
 
-    const todoRef = firebase.firestore().collection("todos").doc(selectedTodo.id);
+    const todoRef = firebase
+      .firestore()
+      .collection("todos")
+      .doc(selectedTodo.id);
 
     if (formData.text !== selectedTodo.text) {
       todoRef.update({ text: formData.text });
     }
-    if (formData.day !== selectedTodo.date || formData.time !== selectedTodo.time) {
+    if (
+      formData.day !== selectedTodo.date ||
+      formData.time !== selectedTodo.time
+    ) {
       todoRef.update({
-        date: moment(formData.day).format("MM/DD/YYYY"),
+        date: moment(formData.day).format("DD/MM/YYYY"),
         day: moment(formData.day).format("d"),
         time: moment(formData.time).format("hh:mm A"),
       });
