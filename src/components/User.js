@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "../images/ghould.png";
+import logo from "../images/noAvt.png";
 import { auth } from "../firebase/FirebaseForLogin";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -38,7 +38,7 @@ function User() {
       <div className="info">
         {authUser ? (
           <>
-            <p>{`Signed in as ${authUser.email}`}</p>
+            <p>{`Hello, ${authUser.email}`}</p>
             <button onClick={userSignOut}>
               <BoxArrowRight size={20} />
               <div className="textOut">Sign out</div>
