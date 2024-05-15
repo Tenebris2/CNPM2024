@@ -3,52 +3,54 @@ import React, { useEffect, useState } from "react";
 import Todo from "./Todo";
 
 function Next7Days({ todos }) {
+  const [todayTodos, setTodayTodos] = useState([]);
   const [weekTodos, setWeekTodos] = useState([]);
 
   useEffect(() => {
-    const days = ["0", "1", "2", "3", "4", "5", "6"];
+    const today = moment().format("d");
 
-    const sortedTodosByDay = days.map((day) => {
+    const todayTasks = todos.filter((todo) => todo.day === today);
+    const weekTasks = todos.filter((todo) => todo.day !== today);
+
+    const sortedWeekTasks = ["0", "1", "2", "3", "4", "5", "6"].map((day) => {
       return {
-        todos: todos.filter((todo) => todo.day === day),
+        todos: weekTasks.filter((todo) => todo.day === day),
         number: day,
       };
     });
 
-    const today = parseInt(moment().format("d"));
+    const arrangeDays = sortedWeekTasks
+      .slice(parseInt(today))
+      .concat(sortedWeekTasks.slice(0, parseInt(today)));
 
-    const arrangeDays = sortedTodosByDay
-      .slice(today)
-      .concat(sortedTodosByDay.slice(0, today));
-
+    setTodayTodos(todayTasks);
     setWeekTodos(arrangeDays);
   }, [todos]);
 
   return (
     <div className="Next7Days">
-      {weekTodos.map((day) => (
-        <div
-          key={day.number}
-          className={`day ${
-            day.number === moment().format("d")
-              ? "today"
-              : day.number === moment().add(1, "days").format("d")
-              ? "tomorrow"
-              : ""
-          }`}
-        >
-          <div className="name">
-            {moment(day.number, "d").format("dddd")}
-            {day.number === moment().format("d") && " (Today)"}
-          </div>
-          <div className="total-todos">({day.todos.length})</div>
-          <div className="todos">
-            {day.todos.map((todo) => (
-              <Todo key={todo.id} todo={todo} />
-            ))}
-          </div>
+      <div className="day today">
+        <div className="name">
+          {moment().format("dddd")} (Today)
         </div>
-      ))}
+        <div className="todos">
+          {todayTodos.map((todo) => (
+            <Todo key={todo.id} todo={todo} />
+          ))}
+        </div>
+      </div>
+      <div className="week">
+        <div className="week-title">This Week</div>
+        {weekTodos.map((day) => (
+          <div key={day.number} className="day">
+            <div className="todos">
+              {day.todos.map((todo) => (
+                <Todo key={todo.id} todo={todo} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
