@@ -1,5 +1,5 @@
-import React from "react";
-import { Bell, CalendarDay, Clock, Palette, X } from "react-bootstrap-icons";
+import React, { useState } from "react";
+import { X } from "react-bootstrap-icons";
 import {
   DatePicker,
   TimePicker,
@@ -22,13 +22,25 @@ function TodoForm({
   showButtons = false,
   setShowModal = false,
 }) {
+  const [error, setError] = useState("");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (!todoProject) {
+      setError("Please select a project.");
+      return;
+    }
+    setError("");
+    handleSubmit(e);
+  };
+
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <form onSubmit={handleSubmit} className="TodoForm">
+      <form onSubmit={onSubmit} className="TodoForm">
         <div className="text">
           {heading && <h3>{heading}</h3>}
           <input
-            spellcheck="false"
+            spellCheck="false"
             type="text"
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -36,20 +48,6 @@ function TodoForm({
             autoFocus
           />
         </div>
-        {/* <div className="text">
-          <input
-            type="text"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder="Description"
-            autoFocus
-          />
-        </div> */}
-        {/* <div c
-        {/* <div className="remind">
-          <Bell />
-          <p>Remind Me!</p>
-        </div> */}
         <div className="pick-day">
           <div className="title">
             <p>Due date</p>
@@ -76,6 +74,7 @@ function TodoForm({
                   value={todoProject}
                   onChange={(e) => setTodoProject(e.target.value)}
                 >
+                  <option value="">Select a project</option>
                   {projects.map((project) => (
                     <option value={project.name} key={project.id}>
                       {project.name}
@@ -90,13 +89,14 @@ function TodoForm({
             </div>
           </div>
         </div>
+        {error && <div style={{ color: "#ff0000" }}>{error}</div>}
         {showButtons && (
           <div>
             <div className="cancel" onClick={() => setShowModal(false)}>
               <X size="40" />
             </div>
             <div className="confirm">
-              <button>Add to do</button>
+              <button type="submit">Add to do</button>
             </div>
           </div>
         )}
