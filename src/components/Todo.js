@@ -1,5 +1,5 @@
 import moment from "moment";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   ArrowClockwise,
   CheckCircleFill,
@@ -17,7 +17,31 @@ function Todo({ todo }) {
   // CONTEXT
   const { setSelectedTodo } = useContext(TodoContext);
 
-  const handleDelete = (todo) => {
+  const isDeadlinePassed = (todo) => {
+    const currentDateTime = moment();
+    const deadlineDateTime = moment(`${todo.date} ${todo.time}`, "DD/MM/YYYY HH:mm");
+    return currentDateTime.isAfter(deadlineDateTime) || currentDateTime.isSame(deadlineDateTime);
+  };
+  
+  // Function to handle checking the deadline and deleting the todo if it's passed
+  const handleCheckDeadline = (todo) => {
+    if (isDeadlinePassed(todo)) {
+      const confirmDelete = window.confirm(
+        `Thời gian deadline của todo "${todo.text}" đã quá hạn. Bạn có muốn xóa nó?`
+      );
+      if (confirmDelete) {
+        deleteTodo(todo);
+      }
+    }
+  };
+  
+  
+
+  useEffect(() => {
+    handleCheckDeadline(todo);
+  }, [todo]);
+
+  const handleDelete = () => {
     deleteTodo(todo);
   };
 
@@ -25,13 +49,13 @@ function Todo({ todo }) {
     firebase.firestore().collection("todos").doc(todo.id).delete();
   };
 
-  const checkTodo = (todo) => {
+  const checkTodo = () => {
     firebase.firestore().collection("todos").doc(todo.id).update({
       checked: !todo.checked,
     });
   };
 
-  const repeatNextDay = (todo) => {
+  const repeatNextDay = () => {
     const nextDayDate = moment(todo.date, "DD/MM/YYYY").add(1, "days");
 
     const repeatedTodo = {
@@ -57,7 +81,7 @@ function Todo({ todo }) {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        <div className="check-todo" onClick={() => checkTodo(todo)}>
+        <div className="check-todo" onClick={checkTodo}>
           {todo.checked ? (
             <span className="checked">
               <CheckCircleFill color="#bebebe" />
@@ -77,19 +101,17 @@ function Todo({ todo }) {
           </span>
           <div className={`line ${todo.checked ? "line-through" : ""}`}></div>
         </div>
-        <div className="add-to-next-day" onClick={() => repeatNextDay(todo)}>
+        <div className="add-to-next-day" onClick={repeatNextDay}>
           {todo.checked && (
             <span>
               <ArrowClockwise />
             </span>
           )}
         </div>
-        <div className="delete-todo" onClick={handleTodoClick}>
-          {
-            <span>
-              <ChevronRight />
-            </span>
-          }
+        <div className="delete-todo" onClick={handleDelete}>
+          <span>
+            <ChevronRight />
+          </span>
         </div>
       </div>
     </div>
