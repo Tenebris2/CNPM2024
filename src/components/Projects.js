@@ -25,9 +25,6 @@ function Projects() {
             </span>
           )}
           <AddNewProject />
-          <span className="arrow">
-            <CaretUp size="20" />
-          </span>
         </div>
       </div>
       <div className="items">
