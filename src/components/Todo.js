@@ -19,9 +19,10 @@ function Todo({ todo }) {
 
   const isDeadlinePassed = (todo) => {
     const currentDateTime = moment();
-    const deadlineDateTime = moment(`${todo.date} ${todo.time}`, "DD/MM/YYYY HH:mm");
+    const deadlineDateTime = moment(`${todo.date} ${todo.time}`, "DD/MM/YYYY hh:mm A");
     return currentDateTime.isAfter(deadlineDateTime) || currentDateTime.isSame(deadlineDateTime);
   };
+  
   
   // Function to handle checking the deadline and deleting the todo if it's passed
   const handleCheckDeadline = (todo) => {
