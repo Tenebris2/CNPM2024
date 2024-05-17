@@ -903,3 +903,12 @@ button.saveChangesBtn {
   height: 90%;
   overflow-y: auto;
 }
+
+.loadingScreen {
+  color: blue;
+  font-size: 24px; /* Adjust the size as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height to center vertically */
+}

@@ -33,7 +33,7 @@ function TodoContextProvider({ children }) {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>; // Show a loading indicator while checking auth state
+    return <div className="loadingScreen">Loading...</div>; // Show a loading indicator while checking auth state
   }
 
   return (
