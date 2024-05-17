@@ -30,14 +30,14 @@ export function useFilterTodos(todos, selectedProject) {
 
   useEffect(() => {
     let data;
-    const todayDateFormated = moment().format("DD/MM/YYYY");
+    const todayDateFormatted = moment().format("DD/MM/YYYY");
 
     if (selectedProject === "Today") {
-      data = todos.filter((todo) => todo.date === todayDateFormated);
+      data = todos.filter((todo) => todo.date === todayDateFormatted);
     } else if (selectedProject === "Upcoming") {
       data = todos.filter((todo) => {
         const todoDate = moment(todo.date, "DD/MM/YYYY");
-        const todayDate = moment(todayDateFormated, "DD/MM/YYYY");
+        const todayDate = moment(todayDateFormatted, "DD/MM/YYYY");
 
         const diffDays = todoDate.diff(todayDate, "days");
 
@@ -48,6 +48,13 @@ export function useFilterTodos(todos, selectedProject) {
     } else {
       data = todos.filter((todo) => todo.projectName === selectedProject);
     }
+
+    // Sort todos by day and time ascending
+    data.sort((a, b) => {
+      const aDateTime = moment(`${a.date} ${a.time}`, "DD/MM/YYYY h:mm a");
+      const bDateTime = moment(`${b.date} ${b.time}`, "DD/MM/YYYY h:mm a");
+      return aDateTime - bDateTime;
+    });
 
     setFilteredTodos(data);
   }, [todos, selectedProject]);
