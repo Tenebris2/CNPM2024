@@ -3,7 +3,11 @@ import { Navigate } from "react-router-dom";
 import { TodoContext } from "../context";
 
 const ProtectedRoute = ({ children }) => {
-  const { currentUser } = useContext(TodoContext);
+  const { currentUser, loading } = useContext(TodoContext);
+
+  if (loading) {
+    return <div>Loading...</div>; // Show loading indicator while checking auth state
+  }
 
   if (!currentUser) {
     // Redirect to login if user is not authenticated

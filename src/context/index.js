@@ -1,4 +1,4 @@
-import React, { createContext, useEffect , useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import {
   useTodos,
   useProjects,
@@ -21,13 +21,20 @@ function TodoContextProvider({ children }) {
   const filteredTodos = useFilterTodos(todos, selectedProject);
 
   const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
+      setLoading(false); // Set loading to false after the auth state has been checked
     });
 
     return () => unsubscribe();
   }, []);
+
+  if (loading) {
+    return <div>Loading...</div>; // Show a loading indicator while checking auth state
+  }
 
   return (
     <TodoContext.Provider
