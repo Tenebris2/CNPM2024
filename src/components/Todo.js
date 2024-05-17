@@ -1,4 +1,3 @@
-import moment from "moment";
 import React, { useContext, useState, useEffect } from "react";
 import {
   ArrowClockwise,
@@ -9,6 +8,7 @@ import {
 } from "react-bootstrap-icons";
 import { TodoContext } from "../context";
 import firebase from "../firebase";
+import moment from "moment";
 
 function Todo({ todo }) {
   // STATE
@@ -29,15 +29,11 @@ function Todo({ todo }) {
     );
   };
 
-  // Function to handle checking the deadline and deleting the todo if it's passed
   const handleCheckDeadline = (todo) => {
-    if (!todo.checked && isDeadlinePassed(todo)) {
-      const confirmDelete = window.confirm(
-        `Thời gian deadline của todo "${todo.text}" đã quá hạn. Bạn có muốn xóa nó?`
-      );
-      if (confirmDelete) {
-        deleteTodo(todo);
-      }
+    const isNotified = localStorage.getItem(`notification_${todo.id}`);
+    if (!todo.checked && isDeadlinePassed(todo) && !isNotified) {
+      alert(`Thời gian deadline của todo "${todo.text}" đã quá hạn.`);
+      localStorage.setItem(`notification_${todo.id}`, "true");
     }
   };
 
@@ -105,13 +101,6 @@ function Todo({ todo }) {
           </span>
           <div className={`line ${todo.checked ? "line-through" : ""}`}></div>
         </div>
-        {/* <div className="add-to-next-day" onClick={repeatNextDay}>
-          {todo.checked && (
-            <span>
-              <ArrowClockwise />
-            </span>
-          )}
-        </div> */}
         <div className="delete-todo" onClick={handleDelete}>
           <span>
             <ChevronRight />
