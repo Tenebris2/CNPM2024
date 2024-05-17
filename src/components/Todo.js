@@ -5,6 +5,7 @@ import {
   Circle,
   Trash,
   ChevronRight,
+  XCircleFill,
 } from "react-bootstrap-icons";
 import { TodoContext } from "../context";
 import firebase from "../firebase";
@@ -82,7 +83,11 @@ function Todo({ todo }) {
         onMouseLeave={() => setHover(false)}
       >
         <div className="check-todo" onClick={checkTodo}>
-          {todo.checked ? (
+          {!todo.checked && isDeadlinePassed(todo) ? (
+            <span className="checked">
+              <XCircleFill color="red" />
+            </span>
+          ) : todo.checked ? (
             <span className="checked">
               <CheckCircleFill color="#bebebe" />
             </span>
