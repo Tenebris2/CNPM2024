@@ -19,14 +19,19 @@ function Todo({ todo }) {
 
   const isDeadlinePassed = (todo) => {
     const currentDateTime = moment();
-    const deadlineDateTime = moment(`${todo.date} ${todo.time}`, "DD/MM/YYYY hh:mm A");
-    return currentDateTime.isAfter(deadlineDateTime) || currentDateTime.isSame(deadlineDateTime);
+    const deadlineDateTime = moment(
+      `${todo.date} ${todo.time}`,
+      "DD/MM/YYYY hh:mm A"
+    );
+    return (
+      currentDateTime.isAfter(deadlineDateTime) ||
+      currentDateTime.isSame(deadlineDateTime)
+    );
   };
-  
-  
+
   // Function to handle checking the deadline and deleting the todo if it's passed
   const handleCheckDeadline = (todo) => {
-    if (isDeadlinePassed(todo)) {
+    if (!todo.checked && isDeadlinePassed(todo)) {
       const confirmDelete = window.confirm(
         `Thời gian deadline của todo "${todo.text}" đã quá hạn. Bạn có muốn xóa nó?`
       );
@@ -35,8 +40,6 @@ function Todo({ todo }) {
       }
     }
   };
-  
-  
 
   useEffect(() => {
     handleCheckDeadline(todo);
@@ -102,13 +105,13 @@ function Todo({ todo }) {
           </span>
           <div className={`line ${todo.checked ? "line-through" : ""}`}></div>
         </div>
-        <div className="add-to-next-day" onClick={repeatNextDay}>
+        {/* <div className="add-to-next-day" onClick={repeatNextDay}>
           {todo.checked && (
             <span>
               <ArrowClockwise />
             </span>
           )}
-        </div>
+        </div> */}
         <div className="delete-todo" onClick={handleDelete}>
           <span>
             <ChevronRight />
