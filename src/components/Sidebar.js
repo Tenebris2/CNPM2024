@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { TodoContext } from "../context";
+import SignOut from "./SignOut"; // Import the SignOut component
 
 function Sidebar({ children }) {
   // CONTEXT
@@ -26,6 +27,7 @@ function Sidebar({ children }) {
   return (
     <div className="Sidebar" ref={sidebarRef}>
       {children}
+      <SignOut /> {/* Include the SignOut component */}
     </div>
   );
 }

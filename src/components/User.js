@@ -46,10 +46,10 @@ function User() {
         {authUser ? (
           <>
             <p>{`Hello, ${getUserName(authUser.email)}`}</p>
-            <button onClick={userSignOut}>
+            {/* <button onClick={userSignOut}>
               <BoxArrowRight size={20} />
               <div className="textOut">Sign out</div>
-            </button>
+            </button> */}
           </>
         ) : (
           <p>Loading...</p>

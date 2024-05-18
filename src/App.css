@@ -314,6 +314,8 @@ body {
 .Projects {
   border-bottom: 1px solid rgb(180, 180, 180);
   margin: 0 20px;
+  max-height: 320px;
+  overflow-y: auto;
 }
 
 .Projects .header {
@@ -981,4 +983,28 @@ button.saveChangesBtn {
 .week-title {
   font-weight: bold;
   font-size: 1rem;
+}
+
+/* Add this CSS to your stylesheet */
+.signOutBtn {
+  position: absolute;
+  bottom: 28px;
+  left: 22px;
+}
+
+.signOutBtn button {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  padding: 4px 16px;
+  border-radius: 12px;
+  font-size: 18px;
+}
+
+.signOutBtn button:hover {
+  background-color: rgb(230, 180, 180);
+  color: blue;
+  cursor: pointer;
 }
