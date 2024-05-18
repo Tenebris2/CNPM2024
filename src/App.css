@@ -772,13 +772,20 @@ body {
 .day.today {
   border: 1px solid black; /* Adjust the border style as needed */
   border-radius: 20px;
-  padding: 20px;
+  padding: 20px 20px 0px;
+  height: 50%;
 }
 
 .day.tomorrow {
   border: 1px solid black; /* Adjust the border style as needed */
+  padding: 20px 20px 0px;
   border-radius: 20px;
-  padding: 20px;
+}
+
+.week {
+  border: 1px solid black; /* Adjust the border style as needed */
+  padding: 20px 20px 0px;
+  border-radius: 20px;
 }
 
 .hvr-grow-shadow {
@@ -932,4 +939,46 @@ button.saveChangesBtn {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; /* Color of the scrollbar thumb on hover */
+}
+
+.Next7Days {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns: one for tomorrow, one for this week */
+  grid-gap: 10px;
+  height: 50px;
+}
+
+.day {
+  display: grid;
+  grid-template-columns: 1fr; /* Only one column */
+  grid-template-rows: auto auto; /* Two rows: one for name, one for todos */
+  grid-gap: 5px;
+}
+
+.day .name {
+  grid-row: 1;
+}
+
+.day .todos {
+  grid-row: 2;
+}
+
+.today {
+  grid-column: 1 / span 2; /* Span across both columns */
+}
+
+.day.today {
+  height: 60%; /* Divide the height equally among the three sections */
+}
+
+.day.tomorrow,
+.week {
+  min-height: 314px;
+  max-height: 314px;
+  margin-top: -214px; /* Adjust the value as needed */
+}
+
+.week-title {
+  font-weight: bold;
+  font-size: 1rem;
 }
