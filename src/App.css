@@ -970,14 +970,15 @@ button.saveChangesBtn {
 }
 
 .day.today {
-  height: 60%; /* Divide the height equally among the three sections */
+  max-height: 318px;
+  min-height: 318px; /* Divide the height equally among the three sections */
 }
 
 .day.tomorrow,
 .week {
-  min-height: 314px;
-  max-height: 314px;
-  margin-top: -214px; /* Adjust the value as needed */
+  min-height: 318px;
+  max-height: 318px;
+  margin-top: 0; /* Adjust the value as needed */
 }
 
 .week-title {
