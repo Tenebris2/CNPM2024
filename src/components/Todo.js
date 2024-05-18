@@ -1,4 +1,3 @@
-import moment from "moment";
 import React, { useContext, useState, useEffect } from "react";
 import {
   ArrowClockwise,
@@ -6,9 +5,11 @@ import {
   Circle,
   Trash,
   ChevronRight,
+  XCircleFill,
 } from "react-bootstrap-icons";
 import { TodoContext } from "../context";
 import firebase from "../firebase";
+import moment from "moment";
 
 function Todo({ todo }) {
   // STATE
@@ -19,24 +20,23 @@ function Todo({ todo }) {
 
   const isDeadlinePassed = (todo) => {
     const currentDateTime = moment();
-    const deadlineDateTime = moment(`${todo.date} ${todo.time}`, "DD/MM/YYYY hh:mm A");
-    return currentDateTime.isAfter(deadlineDateTime) || currentDateTime.isSame(deadlineDateTime);
+    const deadlineDateTime = moment(
+      `${todo.date} ${todo.time}`,
+      "DD/MM/YYYY hh:mm A"
+    );
+    return (
+      currentDateTime.isAfter(deadlineDateTime) ||
+      currentDateTime.isSame(deadlineDateTime)
+    );
   };
-  
-  
-  // Function to handle checking the deadline and deleting the todo if it's passed
+
   const handleCheckDeadline = (todo) => {
-    if (isDeadlinePassed(todo)) {
-      const confirmDelete = window.confirm(
-        `Thời gian deadline của todo "${todo.text}" đã quá hạn. Bạn có muốn xóa nó?`
-      );
-      if (confirmDelete) {
-        deleteTodo(todo);
-      }
+    const isNotified = localStorage.getItem(`notification_${todo.id}`);
+    if (!todo.checked && isDeadlinePassed(todo) && !isNotified) {
+      alert(`Thời gian deadline của todo "${todo.text}" đã quá hạn.`);
+      localStorage.setItem(`notification_${todo.id}`, "true");
     }
   };
-  
-  
 
   useEffect(() => {
     handleCheckDeadline(todo);
@@ -83,7 +83,11 @@ function Todo({ todo }) {
         onMouseLeave={() => setHover(false)}
       >
         <div className="check-todo" onClick={checkTodo}>
-          {todo.checked ? (
+          {!todo.checked && isDeadlinePassed(todo) ? (
+            <span className="checked">
+              <XCircleFill color="red" />
+            </span>
+          ) : todo.checked ? (
             <span className="checked">
               <CheckCircleFill color="#bebebe" />
             </span>
@@ -101,13 +105,6 @@ function Todo({ todo }) {
             {todo.time} &nbsp; | {todo.date} | &nbsp; {todo.projectName}
           </span>
           <div className={`line ${todo.checked ? "line-through" : ""}`}></div>
-        </div>
-        <div className="add-to-next-day" onClick={repeatNextDay}>
-          {todo.checked && (
-            <span>
-              <ArrowClockwise />
-            </span>
-          )}
         </div>
         <div className="delete-todo" onClick={handleDelete}>
           <span>

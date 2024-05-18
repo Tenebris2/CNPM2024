@@ -30,6 +30,13 @@ function User() {
     };
   }, []);
 
+  const getUserName = (email) => {
+    if (email) {
+      return email.split("@")[0];
+    }
+    return "";
+  };
+
   return (
     <div className="User">
       <div className="logo">
@@ -38,11 +45,11 @@ function User() {
       <div className="info">
         {authUser ? (
           <>
-            <p>{`Hello, ${authUser.email}`}</p>
-            <button onClick={userSignOut}>
+            <p>{`Hello, ${getUserName(authUser.email)}`}</p>
+            {/* <button onClick={userSignOut}>
               <BoxArrowRight size={20} />
               <div className="textOut">Sign out</div>
-            </button>
+            </button> */}
           </>
         ) : (
           <p>Loading...</p>

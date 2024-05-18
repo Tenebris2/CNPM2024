@@ -6,6 +6,7 @@ import App from "./App";
 import Login from "./components/Login";
 import SignUp from "./components/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
+
 ReactDOM.render(
   <TodoContextProvider>
     <Router>

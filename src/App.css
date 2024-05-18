@@ -36,7 +36,7 @@ body {
 /* Main */
 .Main {
   width: 76%;
-  height: 100%;
+  height: 99%;
   /* background-image: linear-gradient(79deg, #7439db, #C66FBC 48%, #F7944D);
   background-repeat: no-repeat;
   background-size: cover; */
@@ -314,6 +314,8 @@ body {
 .Projects {
   border-bottom: 1px solid rgb(180, 180, 180);
   margin: 0 20px;
+  max-height: 320px;
+  overflow-y: auto;
 }
 
 .Projects .header {
@@ -772,13 +774,20 @@ body {
 .day.today {
   border: 1px solid black; /* Adjust the border style as needed */
   border-radius: 20px;
-  padding: 20px;
+  padding: 20px 20px 0px;
+  height: 50%;
 }
 
 .day.tomorrow {
   border: 1px solid black; /* Adjust the border style as needed */
+  padding: 20px 20px 0px;
   border-radius: 20px;
-  padding: 20px;
+}
+
+.week {
+  border: 1px solid black; /* Adjust the border style as needed */
+  padding: 20px 20px 0px;
+  border-radius: 20px;
 }
 
 .hvr-grow-shadow {
@@ -902,4 +911,101 @@ button.saveChangesBtn {
 .Todos .todos {
   height: 90%;
   overflow-y: auto;
+}
+
+.loadingScreen {
+  color: blue;
+  font-size: 24px; /* Adjust the size as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height to center vertically */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the scrollbar track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar thumb */
+  border-radius: 6px; /* Roundness of the scrollbar thumb */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar thumb on hover */
+}
+
+.Next7Days {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns: one for tomorrow, one for this week */
+  grid-gap: 10px;
+  height: 50px;
+}
+
+.day {
+  display: grid;
+  grid-template-columns: 1fr; /* Only one column */
+  grid-template-rows: auto auto; /* Two rows: one for name, one for todos */
+  grid-gap: 5px;
+}
+
+.day .name {
+  grid-row: 1;
+}
+
+.day .todos {
+  grid-row: 2;
+}
+
+.today {
+  grid-column: 1 / span 2; /* Span across both columns */
+}
+
+.day.today {
+  max-height: 318px;
+  min-height: 318px; /* Divide the height equally among the three sections */
+}
+
+.day.tomorrow,
+.week {
+  min-height: 318px;
+  max-height: 318px;
+  margin-top: 0; /* Adjust the value as needed */
+}
+
+.week-title {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Add this CSS to your stylesheet */
+.signOutBtn {
+  position: absolute;
+  bottom: 28px;
+  left: 22px;
+}
+
+.signOutBtn button {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  padding: 4px 16px;
+  border-radius: 12px;
+  font-size: 18px;
+}
+
+.signOutBtn button:hover {
+  background-color: rgb(230, 180, 180);
+  color: blue;
+  cursor: pointer;
 }
