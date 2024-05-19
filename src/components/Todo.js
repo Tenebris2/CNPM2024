@@ -106,7 +106,7 @@ function Todo({ todo }) {
           </span>
           <div className={`line ${todo.checked ? "line-through" : ""}`}></div>
         </div>
-        <div className="delete-todo" onClick={handleDelete}>
+        <div className="delete-todo" onClick={handleTodoClick}>
           <span>
             <ChevronRight />
           </span>
