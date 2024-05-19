@@ -108,7 +108,7 @@ function Todo({ todo }) {
         </div>
         <div className="delete-todo" onClick={handleDelete}>
           <span>
-            <Trash />
+            <ChevronRight />
           </span>
         </div>
       </div>
